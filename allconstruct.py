@@ -1,14 +1,16 @@
 def allconstruct(target,wordbank):
-    if target == '': return []
+    if target == '': return [[]]
     
     result = []
     for word in wordbank:
-        if target[0] == word[0]:
+        if target.startswith(word):
             suffix = target[len(word):]
-            suffixwaysways = allconstruct(suffix,wordbank)
-            #targetways = suffixwaysways.map(way => [word,...way])
-            targetways = map(lambda x: x + x, word,suffixwaysways)
-    result.append(targetways)
+            suffixways = allconstruct(suffix,wordbank)
+            targetways = list(map(lambda way: [word, *way], suffixways))
+            
+            result.extend(targetways)
+    
+    return result
 
 
 #Driver function

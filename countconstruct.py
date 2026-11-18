@@ -4,7 +4,7 @@ def countconstruct(target, wordbank, memo = {}):
     
     totalways = 0
     for word in wordbank:
-        if target[0] == word[0]:
+        if target.startswith(word):
             suffix = target[len(word):]
             numofways = countconstruct(suffix,wordbank, memo)
             totalways += numofways

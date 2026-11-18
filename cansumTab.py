@@ -2,10 +2,10 @@ def cansumtab(targetsum,numbers):
     Table = [False] * (targetsum + 1)
     Table[0] = True
     
-    for i in range(targetsum):
+    for i in range(targetsum+1):
         if Table[i] == True:
             for num in numbers:
-                if i+ num <= targetsum:
+                if i + num <= targetsum:
                     Table[i+num] = True
     return Table[targetsum]
 

@@ -2,8 +2,8 @@ def bestsum(targetsum,numbers,memo = {}):
     if targetsum in memo: return memo[targetsum]
     if targetsum < 0: return None
     if targetsum == 0: return []
-    shortest_combination = None
     
+    shortest_combination = None
     for num in numbers:
         remainder = targetsum - num
         results = bestsum(remainder,numbers,memo)

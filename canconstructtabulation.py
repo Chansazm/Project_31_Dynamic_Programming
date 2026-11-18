@@ -2,11 +2,11 @@ def canconstructtab(target,wordbank):
     Table = [False for i in range(len(target) + 1)]
     Table[0] = True
     
-    for each_value in range(len(Table)):
-        if Table[each_value] == True:
+    for i in range(len(Table)):
+        if Table[i] == True:
             for word in wordbank:
-                if target == word[:word]:
-                    Table[each_value + len(word)] = True
+                if target.startswith(word,i):
+                    Table[i + len(word)] = True
     return Table[-1]
 
 

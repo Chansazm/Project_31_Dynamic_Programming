@@ -5,7 +5,8 @@ def howsumtab(targetsum, numbers):
     for i in range(targetsum):
         if Table[i] != None:
             for num in numbers:
-                    Table[i+num] = [Table[i],num]
+                if i+num <= targetsum:
+                    Table[i+num] = [*Table[i],num]
     return Table[targetsum]
 
 
